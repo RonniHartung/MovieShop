@@ -14,7 +14,7 @@ namespace MovieShopDAL
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
+
         public MovieStoreDbContext() : base("name=MovieStoreDbContext")
         {
         }
@@ -24,5 +24,7 @@ namespace MovieShopDAL
         public System.Data.Entity.DbSet<Category> Categories { get; set; }
 
         public System.Data.Entity.DbSet<Customer> Customers { get; set; }
+        public System.Data.Entity.DbSet<Order> Oders { get; set; }
+        public System.Data.Entity.DbSet<OrderContent> OrderContents {get; set;}
     }
 }

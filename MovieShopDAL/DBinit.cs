@@ -11,7 +11,7 @@ namespace MovieShopDAL
     //    Artist myArtist = new Artist { name = "Tool, id=1" };
     //    Genre myGenre = new Genre { name="Metal, id=1};
 
-    //    protected override void Seed(TContext context)
+    //    protected override void Seed(Context context)
     //    {
     //        Album myAlbum = new Album { id = 1, title = "Enigma", price = 10.99m, releaseDate = DateTime.Now, Artist = myArtist, Genre = myGenre };
 
