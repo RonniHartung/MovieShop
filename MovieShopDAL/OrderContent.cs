@@ -8,7 +8,7 @@ namespace MovieShopDAL
     public class OrderContent
     {
         public int OrderContentID { get; set; }
-        public int orderID { get; set; }
-        public int movieID { get; set; }
+        public int OrderID { get; set; }
+        public int MovieID { get; set; }
     }
 }

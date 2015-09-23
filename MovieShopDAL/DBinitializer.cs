@@ -7,12 +7,12 @@ using System.Data.Entity;
 
 namespace MovieShopDAL
 {
-    //public static class DBinitializer
+    public static class DBinitializer
 
-    //{
-    //    //public static void Initialize()
-    //    //{
-    //    //    Database.SetInitializer(new DBinit());
-    //    //}
-    //}
+    {
+        public static void Initialize()
+        {
+            Database.SetInitializer(new DBinit());
+        }
+    }
 }
