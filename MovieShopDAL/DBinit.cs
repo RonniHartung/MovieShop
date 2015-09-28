@@ -33,7 +33,7 @@ namespace MovieShopDAL
 
 
 
-        Customer newCustomer = new Customer { CustomerId = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk" };
+        Customer newCustomer = new Customer { CustomerId = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password="test" };
 
         Order Order1 = new Order { OrderId = 1, CustomerId = 1, OrderDate = DateTime.Now };
         OrderContent Content1 = new OrderContent { ContentId = 1, OrderId = 1, MovieId = 1 };
