@@ -34,21 +34,26 @@ namespace MovieShopDAL
 
 
         Customer newCustomer = new Customer { CustomerId = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk" };
-        
+
+        Order Order1 = new Order { OrderId = 1, CustomerId = 1, OrderDate = DateTime.Now };
+        OrderContent Content1 = new OrderContent { ContentId = 1, OrderId = 1, MovieId = 1 };
+
         protected override void Seed(MovieStoreDbContext context)
         {
             context.Categories.Add(newCategory);
             context.Categories.Add(newCategory1);
             context.Movies.Add(newMovie);
             context.Customers.Add(newCustomer);
+            context.Orders.Add(Order1);
+            context.OrderContents.Add(Content1);
             base.Seed(context);
         }
     }
-        
-        
-        
-        
-        
-        
-        
-        }
+
+
+
+
+
+
+
+}
