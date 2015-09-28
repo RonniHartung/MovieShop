@@ -95,6 +95,7 @@
     <Compile Include="DBinitializer.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="MovieRepository.cs" />
     <Compile Include="MovieStoreDbContext.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderContent.cs" />
