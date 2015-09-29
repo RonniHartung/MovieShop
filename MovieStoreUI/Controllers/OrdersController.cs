@@ -17,8 +17,7 @@ namespace MovieStoreUI.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customers);
-            return View(orders.ToList());
+            return View(db.Orders.ToList());
         }
 
         // GET: Orders/Details/5
@@ -39,7 +38,6 @@ namespace MovieStoreUI.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Firstname");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,CustomerId,OrderDate")] Order order)
+        public ActionResult Create([Bind(Include = "Id,OrderDate,CustomerId")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Firstname", order.CustomerId);
             return View(order);
         }
 
@@ -73,7 +70,6 @@ namespace MovieStoreUI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Firstname", order.CustomerId);
             return View(order);
         }
 
@@ -82,7 +78,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,CustomerId,OrderDate")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,OrderDate,CustomerId")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace MovieStoreUI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Firstname", order.CustomerId);
             return View(order);
         }
 

@@ -39,7 +39,7 @@ namespace MovieStoreUI.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MovieId,Title,Price,ImageUrl,TrailerUrl,CategoryId")] Movie movie)
+        public ActionResult Create([Bind(Include = "Id,Title,Price,ImageUrl,TrailerUrl,CategoryId")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
             return View(movie);
         }
 
@@ -73,7 +73,7 @@ namespace MovieStoreUI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
             return View(movie);
         }
 
@@ -82,7 +82,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MovieId,Title,Price,ImageUrl,TrailerUrl,CategoryId")] Movie movie)
+        public ActionResult Edit([Bind(Include = "Id,Title,Price,ImageUrl,TrailerUrl,CategoryId")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace MovieStoreUI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
             return View(movie);
         }
 

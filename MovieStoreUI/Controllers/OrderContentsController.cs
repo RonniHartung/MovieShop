@@ -17,8 +17,7 @@ namespace MovieStoreUI.Controllers
         // GET: OrderContents
         public ActionResult Index()
         {
-            var orderContents = db.OrderContents.Include(o => o.Movies).Include(o => o.Orders);
-            return View(orderContents.ToList());
+            return View(db.OrderContents.ToList());
         }
 
         // GET: OrderContents/Details/5
@@ -39,8 +38,6 @@ namespace MovieStoreUI.Controllers
         // GET: OrderContents/Create
         public ActionResult Create()
         {
-            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "Title");
-            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "OrderId");
             return View();
         }
 
@@ -49,7 +46,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContentId,OrderId,MovieId")] OrderContent orderContent)
+        public ActionResult Create([Bind(Include = "Id")] OrderContent orderContent)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +55,6 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "Title", orderContent.MovieId);
-            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "OrderId", orderContent.OrderId);
             return View(orderContent);
         }
 
@@ -75,8 +70,6 @@ namespace MovieStoreUI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "Title", orderContent.MovieId);
-            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "OrderId", orderContent.OrderId);
             return View(orderContent);
         }
 
@@ -85,7 +78,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContentId,OrderId,MovieId")] OrderContent orderContent)
+        public ActionResult Edit([Bind(Include = "Id")] OrderContent orderContent)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +86,6 @@ namespace MovieStoreUI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "Title", orderContent.MovieId);
-            ViewBag.OrderId = new SelectList(db.Orders, "OrderId", "OrderId", orderContent.OrderId);
             return View(orderContent);
         }
 

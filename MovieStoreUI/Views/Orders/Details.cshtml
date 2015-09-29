@@ -11,14 +11,6 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Customers.Firstname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Customers.Firstname)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.OrderDate)
         </dt>
 
@@ -26,9 +18,17 @@
             @Html.DisplayFor(model => model.OrderDate)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -12,15 +12,12 @@ namespace MovieStoreUI.Controllers
 {
     public class CustomersController : Controller
     {
-
-        private IRepository<Customer> customerRepos = new DALFacade().CustomerRepository;
         private MovieStoreDbContext db = new MovieStoreDbContext();
 
         // GET: Customers
         public ActionResult Index()
         {
-            var customer = customerRepos.GetAll();
-            return View(customer);
+            return View(db.Customers.ToList());
         }
 
         // GET: Customers/Details/5
@@ -49,7 +46,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,Firstname,Lastname,Adresse,Email,Password")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Firstname,Lastname,Adresse,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +78,7 @@ namespace MovieStoreUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,Firstname,Lastname,Adresse,Email,Password")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Firstname,Lastname,Adresse,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
