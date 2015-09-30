@@ -28,10 +28,10 @@ namespace MovieShopDAL
       
         protected override void Seed(MovieStoreDbContext context)
         {
-            context.Categories.Add(new Category { Id = 1, CategoryName = "Action" });
-            context.Categories.Add(new Category { Id = 2, CategoryName = "Comedy" });
+            context.Categories.Add(new Category { CategoryName = "Action" });
+            context.Categories.Add(new Category { CategoryName = "Comedy" });
 
-            var movie1 = new Movie { Id = 1, Title = "Die Hard 4.0", Price = 99.00m, CategoryId = 1 };
+            var movie1 = new Movie { Title = "Die Hard 4.0", Price = 99.00m, CategoryId = 1 };
                 context.Movies.Add(movie1);
 
             context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test" });

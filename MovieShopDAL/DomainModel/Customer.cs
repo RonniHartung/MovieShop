@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace MovieShopDAL
 {
@@ -11,6 +10,8 @@ namespace MovieShopDAL
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Adresse { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Password { get; set; }
 
