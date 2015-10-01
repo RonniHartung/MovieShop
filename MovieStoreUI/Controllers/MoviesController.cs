@@ -12,6 +12,8 @@ namespace MovieStoreUI.Controllers
 {
     public class MoviesController : Controller
     {
+        private IRepository<Movie> movieRepos = new DALFacade().MovieRepository;
+
         private MovieStoreDbContext db = new MovieStoreDbContext();
 
         // GET: Movies
@@ -128,5 +130,15 @@ namespace MovieStoreUI.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [ChildActionOnly]
+        public ActionResult Totals()
+        {
+            var noOfMovies = (movieRepos.GetAll() as List<Movie>).Count;
+            return Content(noOfMovies + " Movies" );
+        }
+
+
+
     }
 }

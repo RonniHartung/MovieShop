@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +12,11 @@ namespace MovieShopDAL
 
         public int Id { get; set; }
         public string Title { get; set; }
+
+        [Range(typeof(decimal), "0,00", "999,99")]
+        //[DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         public decimal Price {get; set; }
+
         public string ImageUrl { get; set; }
         public string TrailerUrl { get; set; }
 

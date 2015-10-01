@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
 
 namespace MovieShopDAL
 {
@@ -17,7 +19,10 @@ namespace MovieShopDAL
 
         public Order Get(int id)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                return db.Orders.Include(p => p.OrderContents).SingleOrDefault();
+            }
         }
 
         public IEnumerable<Order> GetAll()
