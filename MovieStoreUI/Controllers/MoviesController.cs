@@ -53,8 +53,6 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                //db.Movies.Add(movie);
-                //db.SaveChanges();
                 facade.MovieRepository.Add(movie);
                 return RedirectToAction("Index");
             }
