@@ -7,6 +7,7 @@ namespace MovieShopDAL
 {
     internal class OrderRepository : IRepository<Order>
     {
+        DALFacade facade = new DALFacade();
         public void Add(Order entity)
         {
             throw new NotImplementedException();
@@ -27,7 +28,10 @@ namespace MovieShopDAL
 
         public IEnumerable<Order> GetAll()
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                return db.Orders.ToList();
+            }
         }
 
         public void Remove(int id)

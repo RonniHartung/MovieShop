@@ -7,13 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieShopDAL;
-using MovieStoreUI.Models;
 
 namespace MovieStoreUI.Controllers
 {
     public class OrdersController : Controller
     {
         private MovieStoreDbContext db = new MovieStoreDbContext();
+        DALFacade facade = new DALFacade();
 
         // GET: Orders
         public ActionResult Index()
@@ -22,19 +22,19 @@ namespace MovieStoreUI.Controllers
         }
 
         // GET: Orders/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //Order order = db.Orders.Find(id);
-            //if (order == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            
-            return View(new OrderViewModel(id));
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(order);
         }
 
         // GET: Orders/Create
@@ -116,6 +116,15 @@ namespace MovieStoreUI.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [ChildActionOnly]
+        public int Totals()
+        {
+            int noOfAlbums = (facade.OrderRepository.GetAll()).Count();
+            //int counted = 5;
+            return noOfAlbums;
+        }
+
 
         protected override void Dispose(bool disposing)
         {

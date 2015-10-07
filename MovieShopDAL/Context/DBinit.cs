@@ -30,6 +30,7 @@ namespace MovieShopDAL
         {
             context.Categories.Add(new Category { CategoryName = "Action" });
             context.Categories.Add(new Category { CategoryName = "Comedy" });
+            context.Categories.Add(new Category { CategoryName = "Thriller" });
 
             var movie1 = new Movie { Title = "Die Hard 4.0", Price = 99.32m, CategoryId = 1, ImageUrl= "live-free-or-die-hard-die-hard-40.jpg" };
             context.Movies.Add(movie1);

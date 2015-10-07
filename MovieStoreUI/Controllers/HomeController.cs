@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieShopDAL;
 
 namespace MovieStoreUI.Controllers
 {
     public class HomeController : Controller
     {
+        DALFacade facade = new DALFacade();
         public ActionResult Index()
         {
             return View();
@@ -26,5 +28,7 @@ namespace MovieStoreUI.Controllers
 
             return View();
         }
+
+
     }
 }

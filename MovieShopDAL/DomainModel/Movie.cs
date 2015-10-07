@@ -13,7 +13,7 @@ namespace MovieShopDAL
         public int Id { get; set; }
         public string Title { get; set; }
 
-        [Range(typeof(decimal), "0,00", "999,99")]
+        [Range(typeof(decimal), "0,00", "9999,99")]
         //[DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         public decimal Price {get; set; }
 

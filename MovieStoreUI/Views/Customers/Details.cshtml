@@ -56,3 +56,20 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@foreach (var item in Model.Orders)
+{
+    @item.Id<br /><br />
+    <hr />
+    foreach (var item2 in item.OrderContents)
+    {
+        <div class="row">
+            <div class="col-sm-2">
+                @item2.Movie.Title
+            </div>
+            <div class="col-sm-2">
+                @item2.Movie.Price
+            </div>
+        </div>
+    }
+}

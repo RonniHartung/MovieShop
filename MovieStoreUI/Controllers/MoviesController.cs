@@ -12,15 +12,14 @@ namespace MovieStoreUI.Controllers
 {
     public class MoviesController : Controller
     {
-        private IRepository<Movie> movieRepos = new DALFacade().MovieRepository;
-
         private MovieStoreDbContext db = new MovieStoreDbContext();
+
+        DALFacade facade = new DALFacade();
 
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = db.Movies.Include(m => m.Category);
-            return View(movies.ToList());
+            return View(facade.MovieRepository.GetAll());
         }
 
         // GET: Movies/Details/5
@@ -30,7 +29,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = facade.MovieRepository.Get(id.Value);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -41,7 +40,7 @@ namespace MovieStoreUI.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName");
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName");
             return View();
         }
 
@@ -54,12 +53,13 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(movie);
-                db.SaveChanges();
+                //db.Movies.Add(movie);
+                //db.SaveChanges();
+                facade.MovieRepository.Add(movie);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName", movie.CategoryId);
             return View(movie);
         }
 
@@ -70,12 +70,14 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = facade.MovieRepository.Get(id.Value);
             if (movie == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
+            //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
+            var list = facade.CategoryRepository.GetAll();
+            ViewBag.CategoryId = new SelectList(list,"Id","CategoryName", movie.CategoryId);
             return View(movie);
         }
 
@@ -93,6 +95,8 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
+            //ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoriName", movie.CategoryId);
+
             return View(movie);
         }
 
@@ -103,7 +107,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = facade.MovieRepository.Get(id.Value);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -116,9 +120,9 @@ namespace MovieStoreUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Movie movie = db.Movies.Find(id);
-            db.Movies.Remove(movie);
-            db.SaveChanges();
+            Movie movie = facade.MovieRepository.Get(id);
+            //db.Movies.Remove(movie);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -130,15 +134,6 @@ namespace MovieStoreUI.Controllers
             }
             base.Dispose(disposing);
         }
-
-        [ChildActionOnly]
-        public ActionResult Totals()
-        {
-            var noOfMovies = (movieRepos.GetAll() as List<Movie>).Count;
-            return Content(noOfMovies + " Movies" );
-        }
-
-
 
     }
 }

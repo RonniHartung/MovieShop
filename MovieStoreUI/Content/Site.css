@@ -23,6 +23,13 @@ textarea {
     max-width: 280px;
 }
 
-.movieDetailImage{
+.movieDetailImage {
     width: 150px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #999999;
 }
