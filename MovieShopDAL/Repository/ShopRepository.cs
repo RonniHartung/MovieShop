@@ -3,14 +3,9 @@ using System.Collections.Generic;
 
 namespace MovieShopDAL
 {
-    internal class ShopRepository : IRepository<Shop>
+    internal class ShopRepository 
     {
         public void Add(Shop entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit(Shop entity)
         {
             throw new NotImplementedException();
         }
@@ -25,9 +20,6 @@ namespace MovieShopDAL
             throw new NotImplementedException();
         }
 
-        public void Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

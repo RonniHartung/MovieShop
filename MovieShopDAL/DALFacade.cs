@@ -66,14 +66,14 @@ namespace MovieShopDAL
 
         }
 
-        internal IRepository<Shop> ShopRepository
-        {
-            get
-            {
-                return shopRepository == null ? shopRepository =
-                    new ShopRepository() : shopRepository;
-            }
+        //internal IRepository<Shop> ShopRepository
+        //{
+        //    get
+        //    {
+        //        return shopRepository == null ? shopRepository =
+        //            new ShopRepository() : shopRepository;
+        //    }
             
-        }
+        //}
     }
 }
