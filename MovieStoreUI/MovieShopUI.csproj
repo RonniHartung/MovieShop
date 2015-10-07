@@ -141,6 +141,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\OrderContentsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +151,12 @@
     <Content Include="AppEvent.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MovieImages\die.jpg" />
+    <Content Include="Content\MovieImages\die4.jpg" />
+    <Content Include="Content\MovieImages\interstella.jpg" />
+    <Content Include="Content\MovieImages\pulpfiction.jpg" />
+    <Content Include="Content\MovieImages\The Godfather.jpg" />
+    <Content Include="Content\MovieImages\The Shining.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -209,10 +216,13 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shared\_MovieTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
