@@ -12,7 +12,7 @@ namespace MovieStoreUI.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieStoreDbContext db = new MovieStoreDbContext();
+        //private MovieStoreDbContext db = new MovieStoreDbContext();
 
         DALFacade facade = new DALFacade();
 
@@ -88,12 +88,13 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(movie).State = EntityState.Modified;
-                db.SaveChanges();
+
+                //db.Entry(movie).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
-            //ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoriName", movie.CategoryId);
+            //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName", movie.CategoryId);
 
             return View(movie);
         }
@@ -118,20 +119,12 @@ namespace MovieStoreUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Movie movie = facade.MovieRepository.Get(id);
+            facade.MovieRepository.Remove(id);
             //db.Movies.Remove(movie);
             //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
     }
 }
