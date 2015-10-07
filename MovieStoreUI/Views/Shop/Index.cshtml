@@ -11,14 +11,14 @@
         {
 
             <div class="col-sm-2">
-                <img src="~/Content/MovieImages/@Html.DisplayFor(modelItem => item.ImageUrl)" /> <b>
+                <img src="~/Content/MovieImages/@Html.DisplayFor(modelItem => item.ImageUrl)" /> <br />
                     @Html.DisplayFor(modelItem => item.Title) <br />
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)<br />
                     <b>Price:</b>@Html.DisplayFor(modelItem => item.Price)<br />
 
                     <button type="button" class="btn btn-default">To Basket</button>
                     <input type="submit" class="btn btn-info" value="Pay"><br />
-                    <c href="@item.TrailerUrl" class="btn btn-primary btn-xs">Trailer</c>
+                    <a href="@item.TrailerUrl" class="btn btn-primary btn-xs">Trailer</a>
             </div>
 
         }

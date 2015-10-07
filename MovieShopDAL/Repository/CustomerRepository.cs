@@ -7,8 +7,10 @@ using System.Data.Entity;
 
 namespace MovieShopDAL
 {
-    public class CustomerRepository : IRepository<Customer>
+    internal class CustomerRepository : IRepository<Customer>
     {
+
+
         public void Add(Customer entity)
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
@@ -31,7 +33,7 @@ namespace MovieShopDAL
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                return db.Customers.SingleOrDefault();
+                return db.Customers.Include(o => o.Orders).Include("Orders.OrderContents").Include("Orders.OrderContents.Movie").SingleOrDefault(x=> x.Id == id);
             }
         }
 
@@ -48,7 +50,7 @@ namespace MovieShopDAL
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                var customer = this.Get(id);
+                var customer = db.Customers.Find(id);
                 db.Customers.Remove(customer);
                 db.SaveChanges();
             }

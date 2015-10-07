@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace MovieShopDAL
 {
@@ -7,27 +9,46 @@ namespace MovieShopDAL
     {
         public void Add(OrderContent entity)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                db.OrderContents.Add(entity);
+                db.SaveChanges();
+            }
         }
 
         public void Edit(OrderContent entity)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                db.Entry(entity).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
 
         public OrderContent Get(int id)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                return db.OrderContents.Find(id);
+            }
         }
 
         public IEnumerable<OrderContent> GetAll()
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                return db.OrderContents.ToList();
+            }
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                var oc = db.OrderContents.Find(id);
+                db.OrderContents.Remove(oc);
+                db.SaveChanges();
+            }
         }
     }
 }

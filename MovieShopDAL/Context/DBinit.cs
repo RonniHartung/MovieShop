@@ -24,23 +24,30 @@ namespace MovieShopDAL
     //}
 
     public class DBinit : DropCreateDatabaseIfModelChanges <MovieStoreDbContext>
+
     {
-      
+
         protected override void Seed(MovieStoreDbContext context)
         {
             context.Categories.Add(new Category { CategoryName = "Action" });
             context.Categories.Add(new Category { CategoryName = "Comedy" });
+            context.Categories.Add(new Category { CategoryName = "Thriller" });
 
+          
             var movie1 = new Movie { Title = "Die Hard 4.0", Price = 99.00m, CategoryId = 1, ImageUrl ="die4.jpg" };
                 context.Movies.Add(movie1);
 
-            context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test" });
+            context.Customers.Add(new Customer { Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test" });
+            context.Customers.Add(new Customer { Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk", Password = "test1234" });
 
-            var order1 = new Order { Id = 1, CustomerId = 1, OrderDate = DateTime.Now };
+            var order1 = new Order { CustomerId = 1, OrderDate = DateTime.Now };
+
             context.Orders.Add(order1);
 
-            context.OrderContents.Add(new OrderContent { Id =1, Movie=movie1, Order=order1 });
-            
+            context.OrderContents.Add(new OrderContent { Movie = movie1, Order = order1 });
+            context.OrderContents.Add(new OrderContent { Movie = movie1, Order = order1 });
+
+
             base.Seed(context);
         }
     }

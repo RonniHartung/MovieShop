@@ -12,12 +12,10 @@ namespace MovieStoreUI.Controllers
 {
     public class CategoriesController : Controller
     {
-        private MovieStoreDbContext db = new MovieStoreDbContext();
-
-        // GET: Categories
+        DALFacade facade = new DALFacade();
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(facade.CategoryRepository.GetAll());
         }
 
         // GET: Categories/Details/5
@@ -27,7 +25,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = facade.CategoryRepository.Get(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -50,8 +48,7 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
+                facade.CategoryRepository.Add(category);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +62,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = facade.CategoryRepository.Get(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -82,8 +79,7 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
+                facade.CategoryRepository.Edit(category);
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -96,7 +92,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = facade.CategoryRepository.Get(id.Value);
             if (category == null)
             {
                 return HttpNotFound();
@@ -109,19 +105,9 @@ namespace MovieStoreUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
-            db.SaveChanges();
+            facade.CategoryRepository.Remove(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
