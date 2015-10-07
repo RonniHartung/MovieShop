@@ -16,11 +16,17 @@
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)<br />
                     <b>Price:</b>@Html.DisplayFor(modelItem => item.Price)<br />
 
-                    <button type="button" class="btn btn-default">To Basket</button>
+                     @Html.ActionLink("Details", "Details", new { id = item.Id })
                     <a href="@item.TrailerUrl" class="btn btn-primary btn-xs">Trailer</a>
+                
+                    <button type="button" class="btn btn-default">To Basket</button>
             </div>
+<<<<<<< HEAD
 
 
+=======
+          
+>>>>>>> b128164963d27631ee839d1e0ba5832c292bd5a8
         }
         
         <input type="submit" class="btn btn-info" value="Pay"><br />

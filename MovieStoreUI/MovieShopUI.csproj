@@ -218,6 +218,7 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shared\_MovieTable.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
+    <Content Include="Views\Shop\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
