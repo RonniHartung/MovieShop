@@ -27,9 +27,12 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            @*@Html.DisplayNameFor(model => model.ImageUrl)*@
         </dt>
 
         <dd>
@@ -37,11 +40,12 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TrailerUrl)
+            @*@Html.DisplayNameFor(model => model.TrailerUrl)*@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TrailerUrl)
+            @*@Html.DisplayFor(model => model.TrailerUrl)*@
+            <a href="#" class="btn btn-primary btn-xs">Trailer</a>
         </dd>
 
     </dl>

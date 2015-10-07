@@ -19,7 +19,7 @@ namespace MovieShopDAL
 
         public string ImageUrl { get; set; }
         public string TrailerUrl { get; set; }
-
+        public string Info { get; set; }
         public int CategoryId { get; set; }
        
         public virtual Category Category { get; set; }

@@ -12,7 +12,7 @@ namespace MovieShopDAL
         private IRepository<Category> categoryRepository;
         private IRepository<Order> orderRepository;
         private IRepository<OrderContent> orderContentRepository;
-        private IRepository<Shop> shopRepository;
+        //private IRepository<Shop> shopRepository;
 
 
         public IRepository<Customer> CustomerRepository

@@ -21,12 +21,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TrailerUrl)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -42,12 +42,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TrailerUrl)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
