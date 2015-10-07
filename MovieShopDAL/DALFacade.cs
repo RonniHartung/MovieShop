@@ -12,6 +12,7 @@ namespace MovieShopDAL
         private IRepository<Category> categoryRepository;
         private IRepository<Order> orderRepository;
         private IRepository<OrderContent> orderContentRepository;
+        private IRepository<Shop> shopRepository;
 
 
         public IRepository<Customer> CustomerRepository
@@ -65,5 +66,14 @@ namespace MovieShopDAL
 
         }
 
+        internal IRepository<Shop> ShopRepository
+        {
+            get
+            {
+                return shopRepository == null ? shopRepository =
+                    new ShopRepository() : shopRepository;
+            }
+            
+        }
     }
 }

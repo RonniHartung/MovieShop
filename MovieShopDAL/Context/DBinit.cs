@@ -23,7 +23,8 @@ namespace MovieShopDAL
     //    }
     //}
 
-    public class DBinit : DropCreateDatabaseAlways<MovieStoreDbContext>
+    public class DBinit : DropCreateDatabaseIfModelChanges <MovieStoreDbContext>
+
     {
 
         protected override void Seed(MovieStoreDbContext context)
@@ -32,8 +33,9 @@ namespace MovieShopDAL
             context.Categories.Add(new Category { CategoryName = "Comedy" });
             context.Categories.Add(new Category { CategoryName = "Thriller" });
 
-            var movie1 = new Movie { Title = "Die Hard 4.0", Price = 99.32m, CategoryId = 1, ImageUrl= "live-free-or-die-hard-die-hard-40.jpg" };
-            context.Movies.Add(movie1);
+          
+            var movie1 = new Movie { Title = "Die Hard 4.0", Price = 99.00m, CategoryId = 1, ImageUrl ="die4.jpg" };
+                context.Movies.Add(movie1);
 
             context.Customers.Add(new Customer { Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test" });
             context.Customers.Add(new Customer { Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk", Password = "test1234" });
