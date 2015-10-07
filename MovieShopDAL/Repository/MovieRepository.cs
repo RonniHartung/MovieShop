@@ -29,7 +29,7 @@ namespace MovieShopDAL
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                return db.Movies.Find(id);
+                return db.Movies.Include(c => c.Category).FirstOrDefault(m => m.Id==id);
             }
         }
 
