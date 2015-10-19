@@ -1,53 +1,28 @@
-﻿@model MovieStoreUI.Models.OrderViewModel
-
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
+﻿@model MovieShopDAL.Order
 
 <div>
     <h4>Order</h4>
     <hr />
-    <div class="row">
-        <div class="col-sm-1">
-            @Html.DisplayNameFor(model => model.Order.Id)
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Firstname)
+        </dt>
 
-        </div>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Firstname)
+        </dd>
 
-        <div class="col-sm-4">
-            @Html.DisplayNameFor(model => model.Order.OrderDate)
-        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
 
-        <div class="col-sm-4">
-            @Html.DisplayNameFor(model => model.Order.Customer)
-        </div>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
 
-        <div class="col-sm-1">
-            @Html.DisplayNameFor(model => model.Order.CustomerId)
-        </div>
-    </div>
+    </dl>
 </div>
-
-<div class="row">
-    @foreach (var item in Model.OrderContent)
-    {
-        <div class="col-sm-1">
-            @item.Id
-        </div>
-        <div class="col-sm-4">
-        </div>
-
-        <div class="col-sm-4">
-        </div>
-
-            <div class="col-sm-1">
-            </div>
-    }
-</div>
-
-
-
 <p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
