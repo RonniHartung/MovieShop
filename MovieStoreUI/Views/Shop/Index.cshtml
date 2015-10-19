@@ -4,26 +4,32 @@
     ViewBag.Title = "Movie Shop";
 }
 
-    <h2>Movie Shop</h2>
+<h2>Movie Shop</h2>
 
-    <div class="container">
-        @foreach (var item in Model)
-        {
+<div class="container">
+    @foreach (var item in Model)
+    {
 
-            <div class="col-sm-2">
-                <img src="~/Content/MovieImages/@Html.DisplayFor(modelItem => item.ImageUrl)" /> <br />
-                    @Html.DisplayFor(modelItem => item.Title) <br />
-                    @Html.DisplayFor(modelItem => item.Category.CategoryName)<br />
-                    <b>Price:</b>@Html.DisplayFor(modelItem => item.Price)<br />
-
-                     @Html.ActionLink("Details", "Details", new { id = item.Id })
-                    <a href="@item.TrailerUrl" class="btn btn-primary btn-xs">Trailer</a>
-                
-                    <button type="button" class="btn btn-default">To Basket</button>
+        <div class="col-sm-3">
+            <div>
+                <img src="~/Content/MovieImages/@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-responsive img-rounded" />
             </div>
+            @Html.DisplayFor(modelItem => item.Title) <br />
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)<br />
+            <b>Price: </b>@Html.DisplayFor(modelItem => item.Price)<br />
 
-        }
-        
-        <input type="submit" class="btn btn-info" value="Pay"><br />
-    </div>
+            <button type="button" class="btn btn-default">@Html.ActionLink("Details", "Details", new { id = item.Id })</button>
 
+            @if (@item.TrailerUrl != null)
+            {
+
+                <button type="button" class="btn btn-default">Trailer</button>
+            }
+            <button type="button" class="btn btn-default">To Basket</button>
+        </div>
+
+    }
+
+
+
+</div>

@@ -121,7 +121,6 @@ namespace MovieStoreUI.Controllers
         public int Totals()
         {
             int noOfAlbums = (facade.OrderRepository.GetAll()).Count();
-            //int counted = 5;
             return noOfAlbums;
         }
 

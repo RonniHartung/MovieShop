@@ -219,6 +219,8 @@
     <Content Include="Views\Shared\_MovieTable.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\Movies\Modal.cshtml" />
+    <Content Include="Views\Movies\Trailer2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
