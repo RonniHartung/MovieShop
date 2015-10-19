@@ -125,6 +125,12 @@ namespace MovieStoreUI.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Movies/Details/5
+        public ActionResult Trailer(int? id)
+        {
+            Movie movie = facade.MovieRepository.Get(id.Value);
+            return View(movie);
+        }
 
     }
 }
