@@ -12,13 +12,12 @@ namespace MovieStoreUI.Controllers
 {
     public class CustomersController : Controller
     {
-        DALFacade facade = new DALFacade();
+        private MovieStoreDbContext db = new MovieStoreDbContext();
 
         // GET: Customers
         public ActionResult Index()
         {
-            
-            return View(facade.CustomerRepository.GetAll());
+            return View(db.Customers.ToList());
         }
 
         // GET: Customers/Details/5
@@ -28,7 +27,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = facade.CustomerRepository.Get(id.Value);
+            Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -51,7 +50,8 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                facade.CustomerRepository.Add(customer);
+                db.Customers.Add(customer);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = facade.CustomerRepository.Get(id.Value);
+            Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,8 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                facade.CustomerRepository.Edit(customer);
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -95,7 +96,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = facade.CustomerRepository.Get(id.Value);
+            Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -108,9 +109,19 @@ namespace MovieStoreUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            facade.CustomerRepository.Remove(id);
+            Customer customer = db.Customers.Find(id);
+            db.Customers.Remove(customer);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

@@ -137,7 +137,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLogic\AlbumUtil.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopppingCartController.cs" />
@@ -222,24 +221,16 @@
     <Content Include="Views\Shop\Details.cshtml" />
     <Content Include="Views\Movies\Modal.cshtml" />
     <Content Include="Views\Movies\Trailer2.cshtml" />
-<<<<<<< HEAD:MovieShopUI/MovieShopUI.csproj
-    <Content Include="Views\Customers\View.cshtml" />
-=======
-    <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
->>>>>>> 82608f1ae67a6eaa2fa15881998ec8de41469cb8:MovieStoreUI/MovieShopUI.csproj
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
-<<<<<<< HEAD:MovieShopUI/MovieShopUI.csproj
     <Folder Include="Views\Cart\" />
-=======
-    <Folder Include="Views\CheckOut\" />
->>>>>>> 82608f1ae67a6eaa2fa15881998ec8de41469cb8:MovieStoreUI/MovieShopUI.csproj
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

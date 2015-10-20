@@ -24,7 +24,6 @@ namespace MovieShopDAL
     //}
 
     public class DBinit: DropCreateDatabaseIfModelChanges<MovieStoreDbContext>
-
     {
 
         protected override void Seed(MovieStoreDbContext context)
@@ -42,13 +41,8 @@ namespace MovieShopDAL
             context.Movies.Add(new Movie { Id = 5, Title = "Pulp Fiction", Price = 67.00m, CategoryId = 2, ImageUrl = "pulpfiction.jpg" });
 
 
-<<<<<<< HEAD
-            context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test", Phone="74587569" });
-            context.Customers.Add(new Customer { Id = 2, Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk", Password = "test1234", Phone="52315478" });
-=======
             context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk",Phone = 27351394, Password = "test" });
             context.Customers.Add(new Customer { Id = 2, Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk",Phone = 22334455, Password = "test1234" });
->>>>>>> 82608f1ae67a6eaa2fa15881998ec8de41469cb8
 
             var order1 = new Order { CustomerId = 1, OrderDate = DateTime.Now };
 
