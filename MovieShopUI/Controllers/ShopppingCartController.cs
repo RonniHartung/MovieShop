@@ -42,13 +42,15 @@ namespace MovieStoreUI.Controllers
         public ActionResult Add(int id)
         {
             cartModel.Add(id);
-            return RedirectToAction("Index", "Movies");
+
+            return RedirectToAction("Index", "Movie");
         }
 
         public ActionResult Clear()
         {
             Session["cart"] = null;
-            return RedirectToAction("Index", "Movies");
+
+            return RedirectToAction("Index", "Movie");
         }
 
         // Child action: returns the number of items in the shopping cart

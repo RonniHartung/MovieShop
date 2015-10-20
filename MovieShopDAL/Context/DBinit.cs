@@ -6,6 +6,7 @@ using System.Data.Entity;
 
 namespace MovieShopDAL
 {
+
     public class DBinit: DropCreateDatabaseIfModelChanges<MovieStoreDbContext>
     {
        public void ClearTables(MovieStoreDbContext context)
@@ -45,11 +46,5 @@ namespace MovieShopDAL
             base.Seed(context);
         }
     }
-
-
-
-
-
-
 
 }
