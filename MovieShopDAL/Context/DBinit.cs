@@ -42,8 +42,8 @@ namespace MovieShopDAL
             context.Movies.Add(new Movie { Id = 5, Title = "Pulp Fiction", Price = 67.00m, CategoryId = 2, ImageUrl = "pulpfiction.jpg" });
 
 
-            context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test" });
-            context.Customers.Add(new Customer { Id = 2, Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk", Password = "test1234" });
+            context.Customers.Add(new Customer { Id = 1, Firstname = "Kritjan Thor", Lastname = "Hedinsson", Adresse = "Unknown", Email = "post@kritjanthor.dk", Password = "test", Phone="74587569" });
+            context.Customers.Add(new Customer { Id = 2, Firstname = "Ronni", Lastname = "Hartung", Adresse = "Skoleparken 65 7 tv", Email = "mail@hartnet.dk", Password = "test1234", Phone="52315478" });
 
             var order1 = new Order { CustomerId = 1, OrderDate = DateTime.Now };
 
