@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainModel\Category.cs" />
-    <Compile Include="MovieShopUI\Models.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="DomainModel\Customer.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />

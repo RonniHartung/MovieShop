@@ -37,7 +37,11 @@ namespace MovieStoreUI.Controllers
         public ActionResult Index()
         {
             return View(cartModel);
-            //return View("Index", cartModel);
+        }
+
+        public ActionResult PartIndex()
+        {
+            return View(cartModel);
         }
 
         // GET: /ShoppingCart/Add

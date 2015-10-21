@@ -4,5 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>CheckOut</h2>
 
+
+<div>
+    <hr />
+
+    <h4>Login</h4>
+    @using (Html.BeginForm())
+    {
+        <label for="Phone">Phone: </label>
+        <input id="Phone" name="Phone" />
+        <input class="button" id="submit" type="submit" value="Submit" />
+
+    }
+    Kundeinformationer
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model=>model.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+    </dl>
+
+    ShoppingCart
+   @Html.Action("PartIndex", "ShoppingCart")
+
+</div>
+<div>
+    @using (Html.BeginForm("PlaceOrder","CheckOut"))
+    {
+    <input type="hidden" value="@Html.DisplayFor(model => model.Id)" id="customerId" name="customerId" />
+    <input class="button" id="submit" type="submit" value="Complete" />
+}
+</div>

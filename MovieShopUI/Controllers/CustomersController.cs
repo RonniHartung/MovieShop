@@ -35,6 +35,7 @@ namespace MovieStoreUI.Controllers
             return View(customer);
         }
 
+
         // GET: Customers/Create
         public ActionResult Create()
         {
