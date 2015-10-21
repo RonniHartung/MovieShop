@@ -8,6 +8,7 @@ using MovieShopDAL;
 using MovieStoreUI.Models;
 
 
+
 namespace MovieStoreUI.Controllers
 {
     public class ShoppingCartController : Controller
@@ -35,7 +36,8 @@ namespace MovieStoreUI.Controllers
         // GET: /ShoppingCart/
         public ActionResult Index()
         {
-            return View(cartModel);
+            //return View(cartModel);
+            return View("Index", cartModel);
         }
 
         // GET: /ShoppingCart/Add
