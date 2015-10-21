@@ -24,10 +24,7 @@
 
               
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Admin
-                                <span class="caret"></span>
-                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/Movies">Movies</a></li>
                                 <li><a href="/Categories">Categories</a></li>
@@ -39,7 +36,8 @@
                     </ul>
                 <div class="nav navbar-nav navbar-right">
                     @*<button type="button" class="btn btn-default navbar-btn">Basket</button>*@
-                    <a href="/ShoppingCart">ShoppingCart</a>
+                    <a href="/ShoppingCart" class="btn btn-default navbar-btn">ShoppingCart</a>
+					                    @Html.ActionLink("Shopping Cart" + Html.Action("NoOfItems", "ShoppingCart"), "Index", "ShoppingCart")
                 </div>
             </div>
         </div>

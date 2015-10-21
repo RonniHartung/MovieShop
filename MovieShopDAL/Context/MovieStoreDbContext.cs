@@ -27,6 +27,12 @@ namespace MovieShopDAL
         public System.Data.Entity.DbSet<Order> Orders { get; set; }
         public System.Data.Entity.DbSet<OrderContent> OrderContents {get; set;}
 
+<<<<<<< HEAD
        // public System.Data.Entity.DbSet<MovieShopUI.Models.ShoppingCartItem> ShoppingCartItems { get; set; }
+=======
+
+       // public System.Data.Entity.DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
+>>>>>>> ba427e72d637eddc3c2acc00479f4a74376febf0
     }
 }

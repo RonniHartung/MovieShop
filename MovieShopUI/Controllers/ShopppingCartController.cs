@@ -10,11 +10,11 @@ using MovieStoreUI.Models;
 
 namespace MovieStoreUI.Controllers
 {
-    public class ShopppingCartController : Controller
+    public class ShoppingCartController : Controller
     {
-        private ShoppingCartModel cartModel;
+        private IShoppingCartModel cartModel;
 
-        public ShopppingCartController()
+        public ShoppingCartController()
         {
             IRepository<Movie> repository = new DALFacade().MovieRepository;
             this.cartModel = new ShoppingCartModel(repository);
@@ -42,13 +42,13 @@ namespace MovieStoreUI.Controllers
         public ActionResult Add(int id)
         {
             cartModel.Add(id);
-            return RedirectToAction("Index", "Movie");
+            return RedirectToAction("Index", "Movies");
         }
 
         public ActionResult Clear()
         {
             Session["cart"] = null;
-            return RedirectToAction("Index", "Movie");
+            return RedirectToAction("Index", "Movies");
         }
 
         // Child action: returns the number of items in the shopping cart
