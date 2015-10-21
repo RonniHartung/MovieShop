@@ -6,3 +6,47 @@
 
 <h2>Index</h2>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Title")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+        <th>
+            @Html.DisplayName("UnitPrice")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+        </tr>
+    }
+
+    <tr>
+        <td><b>Total:</b></td>
+        <td>@Model.NoOfItems</td>
+        <td>@Model.TotalPrice.ToString("F2")</td>
+    </tr>
+
+</table>
+
+<p>
+    @Html.ActionLink("Clear shopping cart", "Clear", "ShoppingCart")
+
+    <div class="nav navbar-nav navbar-right">
+        <button type="button" class="btn btn-default">CheckOut</button>
+        </div>
+</p>
