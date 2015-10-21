@@ -1,11 +1,10 @@
 ﻿@model MovieStoreUI.Models.ShoppingCartModel
 
-
 @{
-    ViewBag.Title = "Shopping Cart";
+    ViewBag.Title = "Index";
 }
 
-<h2>Shopping Cart</h2>
+<h2>Index</h2>
 
 <table class="table">
     <tr>
@@ -46,4 +45,8 @@
 
 <p>
     @Html.ActionLink("Clear shopping cart", "Clear", "ShoppingCart")
+
+    <div class="nav navbar-nav navbar-right">
+        <button type="button" class="btn btn-default">CheckOut</button>
+    </div>
 </p>

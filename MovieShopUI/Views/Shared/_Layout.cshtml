@@ -35,9 +35,7 @@
                         </li>
                     </ul>
                 <div class="nav navbar-nav navbar-right">
-                    @*<button type="button" class="btn btn-default navbar-btn">Basket</button>*@
-                    <a href="/ShoppingCart" class="btn btn-default navbar-btn">ShoppingCart</a>
-					                    @Html.ActionLink("Shopping Cart" + Html.Action("NoOfItems", "ShoppingCart"), "Index", "ShoppingCart")
+                    <a href="/ShoppingCart" class="btn btn-default navbar-btn">ShoppingCart @Html.Action("NoOfItems", "ShoppingCart")</a>
                 </div>
             </div>
         </div>
