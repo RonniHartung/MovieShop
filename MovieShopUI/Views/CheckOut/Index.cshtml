@@ -18,58 +18,64 @@
         <input class="button" id="submit" type="submit" value="Submit" />
 
     }
-    Kundeinformationer
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </dt>
+    <div>
+        <button type="button" class="~/Views/Customers/Create.cshtml">New Customer</button>
+     
+    </div>
+        Kundeinformationer
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model=>model.Firstname)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Firstname)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Lastname)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Lastname)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Lastname)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Adresse)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Adresse)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Adresse)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
 
-    </dl>
+        </dl>
 
-    ShoppingCart
-   @Html.Action("PartIndex", "ShoppingCart")
+        ShoppingCart
+        @Html.Action("PartIndex", "ShoppingCart")
 
-</div>
+    </div>
 <div>
     @using (Html.BeginForm("PlaceOrder","CheckOut"))
     {
     <input type="hidden" value="@Html.DisplayFor(model => model.Id)" id="customerId" name="customerId" />
     <input class="button" id="submit" type="submit" value="Complete" />
-}
+
+    }
+   
 </div>
