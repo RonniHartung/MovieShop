@@ -12,7 +12,7 @@ namespace MovieStoreUI.Controllers
 {
     public class MoviesController : Controller
     {
-        //private MovieStoreDbContext db = new MovieStoreDbContext();
+        private MovieStoreDbContext db = new MovieStoreDbContext();
 
         DALFacade facade = new DALFacade();
 
@@ -29,7 +29,8 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = facade.MovieRepository.Get(id.Value);
+            //Movie movie = facade.MovieRepository.Get(id.Value);
+            Movie movie = db.Movies.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -89,8 +90,8 @@ namespace MovieStoreUI.Controllers
             if (ModelState.IsValid)
             {
 
-                //db.Entry(movie).State = EntityState.Modified;
-                //db.SaveChanges();
+                db.Entry(movie).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);

@@ -27,18 +27,14 @@
     @foreach (var item in Model.OrderContents)
     {
         <div class="row">
-            @Html.DisplayFor(modelItem => item.Movie.Title)
-            @Html.DisplayFor(modelItem => item.Price)
-            @Html.DisplayFor(modelItem => item.Quantity)
-
-            @*@{modelItem => item.Quantity * item.Price)}*@
-            
+            <div class="col-sm-2">@Html.DisplayFor(modelItem => item.Movie.Title)</div>
+            <div class="col-sm-2">@Html.DisplayFor(modelItem => item.Price)</div>
+            <div class="col-sm-2">@Html.DisplayFor(modelItem => item.Quantity)</div>
 
         </div>
     }
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

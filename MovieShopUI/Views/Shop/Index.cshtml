@@ -23,7 +23,26 @@
             @if (@item.TrailerUrl != null)
             {
 
-                <button type="button" class="btn btn-default">Trailer</button>
+                <!-- Button HTML (to Trigger Modal) -->
+                <a href="#myModal" class="btn btn-primary" data-toggle="modal">Trailer</a>
+
+    <!-- Modal HTML -->
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe id="cartoonVideo" width="500" height="300" src="@Html.DisplayFor(modelItem => item.TrailerUrl)" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             }
             <button type="button" class="btn btn-default">@Html.ActionLink("Add","Add", "ShoppingCart", new { id = item.Id }, null)</button>
         </div>

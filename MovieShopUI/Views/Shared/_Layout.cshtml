@@ -6,6 +6,19 @@
     <title>@ViewBag.Title - MovieShop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#myModal").on('hidden.bs.modal', function (e) {
+            $("#myModal iframe").each(function () {
+                $(this).attr("src", $(this).attr("src"));
+            });
+        });
+        });
+});
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
