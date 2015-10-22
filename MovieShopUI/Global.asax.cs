@@ -14,7 +14,7 @@ namespace MovieStoreUI
     {
         protected void Application_Start()
         {
-           //MovieShopDAL.DBinitializer.Initialize();
+           MovieShopDAL.DBinitializer.Initialize();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

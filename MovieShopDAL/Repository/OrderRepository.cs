@@ -7,10 +7,13 @@ namespace MovieShopDAL
 {
     internal class OrderRepository : IRepository<Order>
     {
-        DALFacade facade = new DALFacade();
         public void Add(Order entity)
         {
-            throw new NotImplementedException();
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+                db.Orders.Add(entity);
+                db.SaveChanges();
+            }
         }
 
         public void Edit(Order entity)
@@ -22,11 +25,13 @@ namespace MovieShopDAL
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                return db.Orders.Include(p => p.OrderContents).SingleOrDefault();
+                return db.Orders.Include(p => p.OrderContents).Distinct().SingleOrDefault();
             }
         }
 
-        public IEnumerable<Order> GetAll()
+
+
+        public IEnumerable<Order> Get()
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
@@ -38,5 +43,6 @@ namespace MovieShopDAL
         {
             throw new NotImplementedException();
         }
+
     }
 }

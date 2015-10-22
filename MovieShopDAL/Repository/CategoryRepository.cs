@@ -33,7 +33,7 @@ namespace MovieShopDAL
             }
         }
 
-        IEnumerable<Category> IRepository<Category>.GetAll()
+        IEnumerable<Category> IRepository<Category>.Get()
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
