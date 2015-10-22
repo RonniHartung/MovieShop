@@ -37,7 +37,8 @@ namespace MovieShopDAL
             }
         }
 
-        public IEnumerable<Customer> GetAll()
+
+        public IEnumerable<Customer> Get()
         {
 
             using (MovieStoreDbContext db = new MovieStoreDbContext())

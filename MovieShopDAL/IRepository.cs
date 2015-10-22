@@ -8,7 +8,7 @@ namespace MovieShopDAL
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<T> Get();
         T Get(int id);
         void Add(T entity);
         void Edit(T entity);

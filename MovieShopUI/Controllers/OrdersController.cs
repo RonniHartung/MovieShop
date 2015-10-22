@@ -29,6 +29,8 @@ namespace MovieStoreUI.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Order order = db.Orders.Find(id);
+            //Order order = facade.OrderRepository.Get(id.Value);
+
             if (order == null)
             {
                 return HttpNotFound();
@@ -120,10 +122,9 @@ namespace MovieStoreUI.Controllers
         [ChildActionOnly]
         public int Totals()
         {
-            int noOfAlbums = (facade.OrderRepository.GetAll()).Count();
+            int noOfAlbums = (facade.OrderRepository.Get()).Count();
             return noOfAlbums;
         }
-
 
         protected override void Dispose(bool disposing)
         {

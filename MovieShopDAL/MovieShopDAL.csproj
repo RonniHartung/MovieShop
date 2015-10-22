@@ -104,7 +104,6 @@
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainModel\Shop.cs" />
-    <Compile Include="Repository\ShopRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

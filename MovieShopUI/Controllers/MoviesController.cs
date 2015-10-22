@@ -19,7 +19,7 @@ namespace MovieStoreUI.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View(facade.MovieRepository.GetAll());
+            return View(facade.MovieRepository.Get());
         }
 
         // GET: Movies/Details/5
@@ -40,7 +40,7 @@ namespace MovieStoreUI.Controllers
         // GET: Movies/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName");
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.Get(), "Id", "CategoryName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.Get(), "Id", "CategoryName", movie.CategoryId);
             return View(movie);
         }
 
@@ -74,7 +74,7 @@ namespace MovieStoreUI.Controllers
                 return HttpNotFound();
             }
             //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
-            var list = facade.CategoryRepository.GetAll();
+            var list = facade.CategoryRepository.Get();
             ViewBag.CategoryId = new SelectList(list,"Id","CategoryName", movie.CategoryId);
             return View(movie);
         }
@@ -94,7 +94,7 @@ namespace MovieStoreUI.Controllers
                 return RedirectToAction("Index");
             }
             //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", movie.CategoryId);
-            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.GetAll(), "Id", "CategoryName", movie.CategoryId);
+            ViewBag.CategoryId = new SelectList(facade.CategoryRepository.Get(), "Id", "CategoryName", movie.CategoryId);
 
             return View(movie);
         }
