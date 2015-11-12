@@ -7,7 +7,7 @@ using System.Data.Entity;
 namespace MovieShopDAL
 {
 
-    public class DBinit: DropCreateDatabaseAlways<MovieStoreDbContext>
+    public class DBinit: DropCreateDatabaseIfModelChanges<MovieStoreDbContext>
     {
        public void ClearTables(MovieStoreDbContext context)
         {
