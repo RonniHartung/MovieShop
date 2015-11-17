@@ -9,15 +9,6 @@ namespace MovieShopDAL
     {
         System.Data.Entity.SqlServer.SqlProviderServices ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
-        public void Add(Movie entity)
-        {
-            using (MovieStoreDbContext db = new MovieStoreDbContext())
-            {
-                db.Movies.Add(entity);
-                db.SaveChanges();
-            }
-        }
-
         public void Edit(Movie entity)
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
@@ -31,7 +22,7 @@ namespace MovieShopDAL
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                return db.Movies.Include(c => c.Category).FirstOrDefault(m => m.Id==id);
+                return db.Movies.Include(c => c.Category).FirstOrDefault(m => m.Id == id);
             }
         }
 
@@ -40,7 +31,7 @@ namespace MovieShopDAL
 
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                return db.Movies.Include(c=> c.Category).ToList();
+                return db.Movies.Include(c => c.Category).ToList();
             }
         }
 
@@ -68,6 +59,22 @@ namespace MovieShopDAL
                 db.SaveChanges();
                 return true;
             }
+        }
+
+        public Movie Add(Movie item)
+        {
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+
+                if (item == null)
+                {
+                    throw new ArgumentNullException("item");
+                }
+                var itemAdded = db.Movies.Add(item);
+                db.SaveChanges();
+                return itemAdded;
+            }
+
         }
     }
 }

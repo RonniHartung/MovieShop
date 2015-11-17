@@ -7,7 +7,8 @@ namespace MovieShopDAL
 {
     internal class CategoryRepository : IRepository<Category>
     {
-        void IRepository<Category>.Add(Category entity)
+
+        public void Add(Category entity)
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
@@ -52,6 +53,11 @@ namespace MovieShopDAL
         }
 
         public bool Update(Category entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Category IRepository<Category>.Add(Category entity)
         {
             throw new NotImplementedException();
         }

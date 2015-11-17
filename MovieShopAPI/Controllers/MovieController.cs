@@ -92,5 +92,15 @@ namespace MovieShopAPI.Controllers
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
         }
+
+        public HttpResponseMessage PostMovie(Movie entity)
+        {
+            entity = facade.MovieRepository.Add(entity);
+            var response = Request.CreateResponse<Movie>(HttpStatusCode.Created, entity);
+
+            string uri = Url.Link("DefaultApi", new { id = entity.Id });
+            response.Headers.Location = new Uri(uri);
+            return response;
+        }
     }
 }

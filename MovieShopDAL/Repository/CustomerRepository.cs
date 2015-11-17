@@ -61,5 +61,10 @@ namespace MovieShopDAL
         {
             throw new NotImplementedException();
         }
+
+        Customer IRepository<Customer>.Add(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

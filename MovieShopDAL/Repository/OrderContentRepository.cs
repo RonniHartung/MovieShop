@@ -55,5 +55,10 @@ namespace MovieShopDAL
         {
             throw new NotImplementedException();
         }
+
+        OrderContent IRepository<OrderContent>.Add(OrderContent entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

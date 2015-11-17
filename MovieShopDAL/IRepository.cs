@@ -10,7 +10,7 @@ namespace MovieShopDAL
     {
         IEnumerable<T> Get();
         T Get(int id);
-        void Add(T entity);
+        T Add(T entity);
         void Edit(T entity);
         void Remove(int id);
         bool Update(T entity);
