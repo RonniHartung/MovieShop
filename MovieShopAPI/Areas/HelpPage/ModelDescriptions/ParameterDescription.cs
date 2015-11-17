@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace MovieShopAPI.Areas.HelpPage.ModelDescriptions
+namespace MovieShop.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using MovieShopAPI.Areas.HelpPage.ModelDescriptions;
-using MovieShopAPI.Areas.HelpPage.Models;
+using MovieShop.Areas.HelpPage.ModelDescriptions;
+using MovieShop.Areas.HelpPage.Models;
 
-namespace MovieShopAPI.Areas.HelpPage.Controllers
+namespace MovieShop.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

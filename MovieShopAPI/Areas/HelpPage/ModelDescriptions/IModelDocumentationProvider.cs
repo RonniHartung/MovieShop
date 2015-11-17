@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace MovieShopAPI.Areas.HelpPage.ModelDescriptions
+namespace MovieShop.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

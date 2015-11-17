@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using MovieShopAPI.Areas.HelpPage.ModelDescriptions;
+using MovieShop.Areas.HelpPage.ModelDescriptions;
 
-namespace MovieShopAPI.Areas.HelpPage.Models
+namespace MovieShop.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MovieShopDAL.Repository;
 
 namespace MovieShopDAL
 {
@@ -24,25 +25,11 @@ namespace MovieShopDAL
 
         }
 
-        public IRepository<Movie> MovieRepository
-        {
-            get
-            {
-                return movieRepository ?? (movieRepository =
-                    new MovieRepository());
-            }
+        public IRepository<Movie> MovieRepository => movieRepository ?? (movieRepository =
+            new MovieRepository());
 
-        }
-
-        public IRepository<Category> CategoryRepository
-        {
-            get
-            {
-                return categoryRepository == null ? categoryRepository =
-                    new CategoryRepository() : categoryRepository;
-            }
-
-        }
+        public IRepository<Category> CategoryRepository => categoryRepository ?? (categoryRepository =
+            new CategoryRepository());
 
         public IRepository<Order> OrderRepository
         {

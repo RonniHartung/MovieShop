@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MovieShopAPI.Controllers
+namespace MovieShop.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -33,7 +34,13 @@ namespace MovieShopDAL
             }
         }
 
-        IEnumerable<Category> IRepository<Category>.Get()
+
+        public void Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Category> GetAll()
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {

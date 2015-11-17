@@ -15,7 +15,7 @@ namespace MovieStoreUI.Controllers
         DALFacade facade = new DALFacade();
         public ActionResult Index()
         {
-            return View(facade.CategoryRepository.Get());
+            return View(facade.CategoryRepository.GetAll());
         }
 
         // GET: Categories/Details/5

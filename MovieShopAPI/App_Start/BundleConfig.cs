@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MovieShopAPI
+namespace MovieShop
 {
     public class BundleConfig
     {
