@@ -122,9 +122,8 @@ namespace MovieStoreUI.Controllers
         [ChildActionOnly]
         public int Totals()
         {
-            //int noOfAlbums = facade.OrderRepository.GetAll();
-
-            return '0';
+            int noOfAlbums = (facade.OrderRepository.Get()).Count();
+            return noOfAlbums;
         }
 
         protected override void Dispose(bool disposing)

@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using MovieShop.Areas.HelpPage.ModelDescriptions;
-using MovieShop.Areas.HelpPage.Models;
+using MovieShopAPI.Areas.HelpPage.ModelDescriptions;
+using MovieShopAPI.Areas.HelpPage.Models;
 
-namespace MovieShop.Areas.HelpPage
+namespace MovieShopAPI.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

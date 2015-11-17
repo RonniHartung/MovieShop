@@ -1,6 +1,6 @@
 using System;
 
-namespace MovieShop.Areas.HelpPage.ModelDescriptions
+namespace MovieShopAPI.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

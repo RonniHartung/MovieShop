@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using System.Collections;
+
 
 namespace MovieShopDAL
 {
@@ -38,8 +38,9 @@ namespace MovieShopDAL
         }
 
 
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<Customer> Get()
         {
+
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
                 return db.Customers.ToList();
@@ -55,6 +56,5 @@ namespace MovieShopDAL
                 db.SaveChanges();
             }
         }
-
     }
 }

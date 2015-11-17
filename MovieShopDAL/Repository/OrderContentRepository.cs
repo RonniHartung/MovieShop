@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -34,7 +33,7 @@ namespace MovieShopDAL
             }
         }
 
-        public IEnumerable<OrderContent> GetAll()
+        public IEnumerable<OrderContent> Get()
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {

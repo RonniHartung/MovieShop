@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MovieShop.Areas.HelpPage
+namespace MovieShopAPI.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

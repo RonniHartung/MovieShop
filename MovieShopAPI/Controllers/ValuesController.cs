@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MovieShop.Controllers
+namespace MovieShopAPI.Controllers
 {
     public class ValuesController : ApiController
     {

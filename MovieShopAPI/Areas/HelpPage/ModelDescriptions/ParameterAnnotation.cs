@@ -1,6 +1,6 @@
 using System;
 
-namespace MovieShop.Areas.HelpPage.ModelDescriptions
+namespace MovieShopAPI.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

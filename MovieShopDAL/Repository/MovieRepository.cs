@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace MovieShopDAL.Repository
+namespace MovieShopDAL
 {
     internal class MovieRepository : IRepository<Movie>
     {
-
         public void Add(Movie entity)
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
@@ -30,18 +29,16 @@ namespace MovieShopDAL.Repository
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                //return db.Movies.Include(c => c.Category).FirstOrDefault(m => m.Id == id);
-
-                return db.Movies.FirstOrDefault(m => m.Id == id);
+                return db.Movies.Include(c => c.Category).FirstOrDefault(m => m.Id==id);
             }
         }
 
-        public IEnumerable<Movie> GetAll()
+        public IEnumerable<Movie> Get()
         {
+
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
-                //return db.Movies.Include(c => c.Category).ToList();
-                return db.Movies.ToList();
+                return db.Movies.Include(c=> c.Category).ToList();
             }
         }
 
@@ -55,5 +52,4 @@ namespace MovieShopDAL.Repository
             }
         }
     }
-
-    }
+}

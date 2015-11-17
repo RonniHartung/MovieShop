@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
-using System.Collections;
 
 namespace MovieShopDAL
 {
@@ -32,7 +31,7 @@ namespace MovieShopDAL
 
 
 
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<Order> Get()
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
             {
