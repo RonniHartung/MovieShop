@@ -56,5 +56,10 @@ namespace MovieShopDAL
                 db.SaveChanges();
             }
         }
+
+        public bool Update(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

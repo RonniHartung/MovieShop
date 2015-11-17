@@ -7,6 +7,8 @@ namespace MovieShopDAL
 {
     internal class MovieRepository : IRepository<Movie>
     {
+        System.Data.Entity.SqlServer.SqlProviderServices ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
         public void Add(Movie entity)
         {
             using (MovieStoreDbContext db = new MovieStoreDbContext())
@@ -49,6 +51,22 @@ namespace MovieShopDAL
                 var movies = db.Movies.Find(id);
                 db.Movies.Remove(movies);
                 db.SaveChanges();
+            }
+        }
+
+        public bool Update(Movie entity)
+        {
+            using (MovieStoreDbContext db = new MovieStoreDbContext())
+            {
+
+                if (entity == null)
+                {
+                    throw new ArgumentNullException("entity");
+                }
+
+                db.Entry(entity).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
             }
         }
     }

@@ -44,5 +44,9 @@ namespace MovieShopDAL
             throw new NotImplementedException();
         }
 
+        public bool Update(Order entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

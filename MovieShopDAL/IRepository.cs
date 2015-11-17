@@ -13,5 +13,6 @@ namespace MovieShopDAL
         void Add(T entity);
         void Edit(T entity);
         void Remove(int id);
+        bool Update(T entity);
     }
 }
